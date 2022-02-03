@@ -1,0 +1,14 @@
+---
+version: "3"
+services:
+  bitcoinHunter:
+    build:
+      context: .
+      dockerfile: "./Dockerfile"
+    volumes:
+      - "./:/worker"
+    container_name: bitcoinHunter
+    restart: unless-stopped
+    working_dir: /worker
+    command: >
+      ./run_forever.sh
